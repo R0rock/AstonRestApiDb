@@ -1,7 +1,7 @@
 package org.example.projects.Implementation_mappers;
 
-import com.example.app.dto.RoleDTO;
-import com.example.app.entity.Role;
+import org.example.projects.communications.Role;
+import org.example.projects.communications.RoleDTO;
 
 public interface RoleMapper {
     Role toEntity(RoleDTO roleDTO);
