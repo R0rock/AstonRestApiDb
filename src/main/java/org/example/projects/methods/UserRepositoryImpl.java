@@ -1,4 +1,4 @@
-ppackage com.example.app.repository.impl;
+package org.example.projects.methods;
 
 import com.example.app.entity.User;
 import com.example.app.repository.UserRepository;

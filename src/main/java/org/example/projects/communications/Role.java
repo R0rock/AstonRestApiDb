@@ -1,4 +1,4 @@
-package com.example.app.entity;
+package org.example.projects.communications;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
