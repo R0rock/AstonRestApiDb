@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,4 +22,9 @@ public class User {
     private String name;
     private int age;
     private Set<Role> roles;
+    private List<Role> roless;
+
+    public void setRoles(List<Role> roles) {
+        this.roless = roles;
+    }
 }

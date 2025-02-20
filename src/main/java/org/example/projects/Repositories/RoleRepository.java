@@ -1,5 +1,7 @@
 package org.example.projects.Repositories;
 
+import org.example.projects.communications.Role;
+
 import java.util.List;
 
 public interface RoleRepository {

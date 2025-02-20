@@ -1,9 +1,13 @@
 package org.example.projects.Implementation_of_services;
 
-import com.example.app.dto.UserDTO;
-import com.example.app.entity.User;
-import com.example.app.mapper.UserMapper;
-import com.example.app.repository.UserRepository;
+import org.example.projects.Implementation_mappers.UserMapper;
+import org.example.projects.Repositories.UserRepository;
+import org.example.projects.communications.UserDTO;
+import org.example.projects.communications.User;
+import org.example.projects.Repositories.RoleRepository;
+import org.example.projects.Implementation_mappers.RoleMapper;
+import org.example.projects.Implementation_of_services.RoleService;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,10 +15,20 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final RoleService roleService;
 
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
+
+    public UserService(
+            UserRepository userRepository,
+            UserMapper userMapper,
+            RoleRepository roleRepository,
+            RoleMapper roleMapper
+            ) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
+        this.roleService = new RoleService(roleRepository, roleMapper);
+
+        // Создаем RoleService с нужными параметрами
     }
 
     public List<UserDTO> getAllUsers() {

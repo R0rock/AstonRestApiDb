@@ -1,10 +1,12 @@
 package org.example.projects.methods;
 
-import com.example.restcrudservice.dto.UserDTO;
-import com.example.restcrudservice.entity.User;
-import com.example.restcrudservice.mapper.UserMapper;
-import com.example.restcrudservice.repository.UserRepository;
-import com.example.restcrudservice.service.UserService;
+import org.example.projects.communications.UserDTO;
+import org.example.projects.communications.User;
+import org.example.projects.Implementation_mappers.UserMapper;
+import org.example.projects.Repositories.UserRepository;
+import org.example.projects.Implementation_of_services.UserService;
+
+
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -17,4 +17,9 @@ import lombok.NoArgsConstructor;
 public class Privilege {
     private Long id;
     private String privilegeName;
+
+    public Privilege(Long id, String name) {
+        this.id = id;
+        this.privilegeName = privilegeName;
+    }
 }

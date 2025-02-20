@@ -1,5 +1,6 @@
 package org.example.projects.Repositories;
 
+import org.example.projects.communications.User;
 import java.util.List;
 
 public interface UserRepository {

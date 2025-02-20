@@ -1,5 +1,9 @@
 package org.example.projects.Servlets;
 
+
+import org.example.projects.Implementation_of_services.UserService;
+import org.example.projects.communications.UserDTO;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

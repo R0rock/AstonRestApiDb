@@ -2,6 +2,7 @@ package org.example.projects.communications;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Set;
@@ -16,7 +17,16 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {
+    @Getter
     private Long id;
     private String roleName;
     private Set<Privilege> privileges;
+
+        public Long getId() {
+            return id;
+        }
+    public Set<Privilege> getPrivileges() {
+        return privileges;
+    }
+
 }

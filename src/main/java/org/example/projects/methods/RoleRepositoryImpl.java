@@ -1,8 +1,14 @@
 package org.example.projects.methods;
 
-import com.example.app.entity.Privilege;
-import com.example.app.entity.Role;
-import com.example.app.repository.RoleRepository;
+//import com.example.app.entity.Privilege;
+//import com.example.app.entity.Role;
+//import com.example.app.repository.RoleRepository;
+
+import org.example.projects.communications.Privilege;
+import org.example.projects.communications.Role;
+import org.example.projects.Repositories.RoleRepository;
+
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

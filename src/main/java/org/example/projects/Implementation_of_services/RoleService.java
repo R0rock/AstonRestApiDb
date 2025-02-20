@@ -1,17 +1,19 @@
 package org.example.projects.Implementation_of_services;
 
-import com.example.app.dto.RoleDTO;
-import com.example.app.entity.Privilege;
-import com.example.app.entity.Role;
-import com.example.app.mapper.RoleMapper;
-import com.example.app.repository.RoleRepository;
+import org.example.projects.communications.RoleDTO;
+import org.example.projects.communications.Privilege;
+import org.example.projects.communications.Role;
+import org.example.projects.Implementation_mappers.RoleMapper;
+import org.example.projects.Repositories.RoleRepository;
+import org.example.projects.Implementation_mappers.RoleMapper;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RoleService {
     private final RoleRepository roleRepository;
-    private final RoleMapper roleMapper;
+    private final org.example.projects.Implementation_of_services.RoleMapper roleMapper;
 
     public RoleService(RoleRepository roleRepository, RoleMapper roleMapper) {
         this.roleRepository = roleRepository;

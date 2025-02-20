@@ -1,7 +1,7 @@
 package org.example.projects.methods;
 
-import com.example.app.entity.User;
-import com.example.app.repository.UserRepository;
+import org.example.projects.communications.User;
+import org.example.projects.Repositories.UserRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,11 +1,12 @@
 package org.example.projects.Initializing_services_and_repositories;
 
-import com.example.app.mapper.UserMapper;
-import com.example.app.mapper.UserMapperImpl;
-import com.example.app.repository.UserRepository;
-import com.example.app.repository.impl.UserRepositoryImpl;
-import com.example.app.service.UserService;
+import org.example.projects.Implementation_mappers.UserMapper;
+import org.example.projects.Implementation_mappers.UserMapperImpl;
+import org.example.projects.Repositories.UserRepository;
+import org.example.projects.methods.UserRepositoryImpl;
+import org.example.projects.Implementation_of_services.UserService;
 
+import org.example.projects.Connecting_database.DatabaseConnectionManager;
 import java.sql.Connection;
 
 public class AppInitializer {
