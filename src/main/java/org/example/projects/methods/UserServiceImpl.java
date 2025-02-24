@@ -46,4 +46,30 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public void assignRolesToUser(Long userId, List<Long> roleIds) {
+        User user = userRepository.findById(userId);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found with id: " + userId);
+        }
+        RoleService roleService = new RoleService(); // Предположим, что роль-сервис доступен
+        user.setRoles(roleService.findRolesByIds(roleIds));
+        userRepository.update(user);
+    }
+
+    @Override
+    public void removeRolesFromUser(Long userId, List<Long> roleIds) {
+        User user = userRepository.findById(userId);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found with id: " + userId);
+        }
+        RoleService roleService = new RoleService(); // Предположим, что роль-сервис доступен
+        Set<Role> currentRoles = user.getRoles();
+        Set<Role> updatedRoles = currentRoles.stream()
+                .filter(role -> !roleIds.contains(role.getId()))
+                .collect(Collectors.toSet());
+        user.setRoles(updatedRoles);
+        userRepository.update(user);
+    }
 }

@@ -9,11 +9,7 @@ import org.example.projects.communications.Role;
 import org.example.projects.Repositories.RoleRepository;
 
 
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -29,23 +25,14 @@ public class RoleRepositoryImpl implements RoleRepository {
     @Override
     public List<Role> findAll() {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT r.id, r.role_name, p.privilege_id, p.privilege_name " +
-                    "FROM roles r LEFT JOIN role_privileges rp ON r.id = rp.role_id " +
-                    "LEFT JOIN privileges p ON rp.privilege_id = p.id");
+            PreparedStatement statement = connection.prepareStatement("SELECT (r.id), (r.role_name) " +
+                    "FROM roles r");
             ResultSet resultSet = statement.executeQuery();
             List<Role> roles = new ArrayList<>();
             while (resultSet.next()) {
                 long roleId = resultSet.getLong("id");
                 String roleName = resultSet.getString("role_name");
                 Role role = new Role(roleId, roleName, new HashSet<>());
-                while (!resultSet.isAfterLast()) {
-                    long privilegeId = resultSet.getLong("privilege_id");
-                    String privilegeName = resultSet.getString("privilege_name");
-                    if (privilegeId != 0 && privilegeName != null) {
-                        role.getPrivileges().add(new Privilege(privilegeId, privilegeName));
-                    }
-                    resultSet.next();
-                }
                 roles.add(role);
             }
             return roles;
@@ -57,24 +44,15 @@ public class RoleRepositoryImpl implements RoleRepository {
     @Override
     public Role findById(Long id) {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT r.id, r.role_name, p.privilege_id, p.privilege_name " +
-                    "FROM roles r LEFT JOIN role_privileges rp ON r.id = rp.role_id " +
-                    "LEFT JOIN privileges p ON rp.privilege_id = p.id " +
-                    "WHERE r.id = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT (r.id), (r.role_name) " +
+                    "FROM roles r " +
+                    "WHERE (r.id) = ?");
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 long roleId = resultSet.getLong("id");
                 String roleName = resultSet.getString("role_name");
                 Role role = new Role(roleId, roleName, new HashSet<>());
-                while (!resultSet.isAfterLast()) {
-                    long privilegeId = resultSet.getLong("privilege_id");
-                    String privilegeName = resultSet.getString("privilege_name");
-                    if (privilegeId != 0 && privilegeName != null) {
-                        role.getPrivileges().add(new Privilege(privilegeId, privilegeName));
-                    }
-                    resultSet.next();
-                }
                 return role;
             }
             return null;
@@ -86,7 +64,8 @@ public class RoleRepositoryImpl implements RoleRepository {
     @Override
     public void save(Role role) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO roles (role_name) VALUES (?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO roles (role_name) VALUES (?)",
+                                                                     Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, role.getRoleName());
             statement.executeUpdate();
 

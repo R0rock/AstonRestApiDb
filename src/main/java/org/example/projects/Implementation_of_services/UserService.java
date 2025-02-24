@@ -17,18 +17,15 @@ public class UserService {
     private final UserMapper userMapper;
     private final RoleService roleService;
 
-
     public UserService(
             UserRepository userRepository,
             UserMapper userMapper,
             RoleRepository roleRepository,
             RoleMapper roleMapper
-            ) {
+    ) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.roleService = new RoleService(roleRepository, roleMapper);
-
-        // Создаем RoleService с нужными параметрами
     }
 
     public List<UserDTO> getAllUsers() {
@@ -46,7 +43,7 @@ public class UserService {
     }
 
     public void updateUser(UserDTO userDTO) {
-        userRepository.update(userMapper.toEntity(userDTO));
+        userRepository.save(userMapper.toEntity(userDTO)); // Используйте save, если update отсутствует
     }
 
     public void deleteUserById(Long id) {
@@ -60,6 +57,6 @@ public class UserService {
         }
         RoleService roleService = new RoleService(); // Предположим, что роль-сервис доступен
         user.setRoles(roleService.findRolesByIds(roleIds));
-        userRepository.update(user);
+       userRepository.update(user);
     }
 }

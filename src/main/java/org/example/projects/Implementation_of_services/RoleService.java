@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class RoleService {
     private final RoleRepository roleRepository;
-    private final org.example.projects.Implementation_of_services.RoleMapper roleMapper;
+    private final RoleMapper roleMapper;
 
     public RoleService(RoleRepository roleRepository, RoleMapper roleMapper) {
         this.roleRepository = roleRepository;
@@ -35,11 +35,11 @@ public class RoleService {
     }
 
     public void updateRole(RoleDTO roleDTO) {
-        roleRepository.update(roleMapper.toEntity(roleDTO));
+   roleRepository.save(roleMapper.toEntity(roleDTO)); // Используйте save, если update отсутствует
     }
 
     public void deleteRoleById(Long id) {
-        roleRepository.deleteById(id);
+    roleRepository.deleteById(id);
     }
 
     public List<Role> findRolesByIds(List<Long> ids) {
@@ -53,7 +53,7 @@ public class RoleService {
         if (role == null) {
             throw new IllegalArgumentException("Role not found with id: " + roleId);
         }
-        Privilege privilege = new Privilege(privilegeId, ""); // Предположим, что имя привиллегии не важно
+        Privilege privilege = new Privilege(privilegeId, "");
         role.getPrivileges().add(privilege);
         roleRepository.update(role);
     }

@@ -15,7 +15,6 @@ public class UserMapperImpl implements UserMapper {
         User user = new User();
         user.setId(userDTO.getId());
         user.setName(userDTO.getName());
-        user.setId(userDTO.getId());
         // Добавьте другие поля, если они есть
 
         return user;
@@ -31,7 +30,6 @@ public class UserMapperImpl implements UserMapper {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
-        userDTO.setId(user.getId());
         // Добавьте другие поля, если они есть
 
         return userDTO;

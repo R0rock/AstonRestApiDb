@@ -22,9 +22,8 @@ public class User {
     private String name;
     private int age;
     private Set<Role> roles;
-    private List<Role> roless;
 
-    public void setRoles(List<Role> roles) {
-        this.roless = roles;
+    public void setRoles(Set<Role> roles) {
+        [this.roles](this.roles) = roles;
     }
 }

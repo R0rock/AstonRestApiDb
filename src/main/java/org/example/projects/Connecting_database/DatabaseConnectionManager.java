@@ -11,8 +11,8 @@ public class DatabaseConnectionManager {
 
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            [Class.forName(](Class.forName()"com.[mysql.cj.jdbc.Driver](mysql.cj.jdbc.Driver)");
+            return [DriverManager.getConnection(DB_URL](DriverManager.getConnection(DB_URL), USERNAME, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }

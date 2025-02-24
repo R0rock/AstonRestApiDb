@@ -17,27 +17,30 @@ public class UserServlet extends HttpServlet {
     private final UserService userService;
 
     public UserServlet(UserService userService) {
-        this.userService = userService;
+        [this.userService](this.userService) = userService;
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<UserDTO> users = userService.getAllUsers();
-        // Здесь нужно сериализовать список пользователей в JSON и отправить ответ
+        List<UserDTO> users = [userService.getAllUsers()](userService.getAllUsers());
+        // Заполнение ответа
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Здесь нужно десериализовать тело запроса в объект UserDTO и передать его в метод createUser
+        // Получение данных из запроса
+        // Создание нового пользователя
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Здесь нужно десериализовать тело запроса в объект UserDTO и передать его в метод updateUser
+        // Получение данных из запроса
+        // Обновление существующего пользователя
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Здесь нужно получить ID пользователя из URL и передать его в метод deleteUserById
+        // Получение идентификатора пользователя из запроса
+        // Удаление пользователя
     }
 }

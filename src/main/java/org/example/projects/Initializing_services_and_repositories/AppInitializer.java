@@ -9,6 +9,7 @@ import org.example.projects.Implementation_of_services.UserService;
 import org.example.projects.Connecting_database.DatabaseConnectionManager;
 import java.sql.Connection;
 
+
 public class AppInitializer {
     public static void main(String[] args) {
         Connection connection = DatabaseConnectionManager.getConnection();

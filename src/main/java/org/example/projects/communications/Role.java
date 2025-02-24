@@ -22,11 +22,7 @@ public class Role {
     private String roleName;
     private Set<Privilege> privileges;
 
-        public Long getId() {
-            return id;
-        }
     public Set<Privilege> getPrivileges() {
         return privileges;
     }
-
 }

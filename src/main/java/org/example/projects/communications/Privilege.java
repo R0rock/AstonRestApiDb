@@ -18,8 +18,8 @@ public class Privilege {
     private Long id;
     private String privilegeName;
 
-    public Privilege(Long id, String name) {
-        this.id = id;
-        this.privilegeName = privilegeName;
+    public Privilege(Long id, String privilegeName) {
+        [this.id](this.id) = id;
+        [this.privilegeName](this.privilegeName) = privilegeName;
     }
 }
