@@ -1,7 +1,198 @@
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+<!--         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+<!--  <modelVersion>4.0.0</modelVersion>-->
+
+<!--  &lt;!&ndash; Добавляем spring-boot-parent &ndash;&gt;-->
+<!--  <parent>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-parent</artifactId>-->
+<!--    <version>2.7.0</version> &lt;!&ndash; Версия Spring Boot &ndash;&gt;-->
+<!--    <relativePath/> &lt;!&ndash; Важно указать этот тег &ndash;&gt;-->
+<!--  </parent>-->
+
+<!--  <groupId>com.example</groupId>-->
+<!--  <artifactId>rest-service</artifactId>-->
+<!--  <version>1.0-SNAPSHOT</version>-->
+<!--  <packaging>war</packaging>-->
+
+<!--  <properties>-->
+<!--    <maven.compiler.source>11</maven.compiler.source>-->
+<!--    <maven.compiler.target>11</maven.compiler.target>-->
+<!--    <junit.version>5.8.1</junit.version>-->
+<!--    <mockito.version>4.0.0</mockito.version>-->
+<!--    <lombok.version>1.18.22</lombok.version>-->
+<!--    <mysql.connector.version>8.0.26</mysql.connector.version>-->
+<!--    <servlet.api.version>4.0.1</servlet.api.version>-->
+<!--    <jackson.version>2.13.0</jackson.version>-->
+<!--    <spring.version>5.3.23</spring.version>-->
+<!--    <hibernate.version>5.6.10.Final</hibernate.version>-->
+<!--    <mapstruct.version>1.5.2.Final</mapstruct.version>-->
+<!--  </properties>-->
+
+<!--  <dependencies>-->
+<!--    &lt;!&ndash; Servlet API &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>javax.servlet</groupId>-->
+<!--      <artifactId>javax.servlet-api</artifactId>-->
+<!--      <version>${servlet.api.version}</version>-->
+<!--      <scope>provided</scope>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; MySQL Connector &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>mysql</groupId>-->
+<!--      <artifactId>mysql-connector-java</artifactId>-->
+<!--      <version>${mysql.connector.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Lombok &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.projectlombok</groupId>-->
+<!--      <artifactId>lombok</artifactId>-->
+<!--      <version>${lombok.version}</version>-->
+<!--      <scope>provided</scope>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Jackson for JSON processing &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--      <artifactId>jackson-databind</artifactId>-->
+<!--      <version>${jackson.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; JUnit 5 &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-api</artifactId>-->
+<!--      <version>${junit.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-engine</artifactId>-->
+<!--      <version>${junit.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Mockito &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.mockito</groupId>-->
+<!--      <artifactId>mockito-core</artifactId>-->
+<!--      <version>${mockito.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Зависимости для Spring &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-core</artifactId>-->
+<!--      <version>${spring.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-context</artifactId>-->
+<!--      <version>${spring.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-beans</artifactId>-->
+<!--      <version>${spring.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-webmvc</artifactId>-->
+<!--      <version>${spring.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-aop</artifactId>-->
+<!--      <version>${spring.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-test</artifactId>-->
+<!--      <version>${spring.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Hibernate для JPA &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.hibernate</groupId>-->
+<!--      <artifactId>hibernate-core</artifactId>-->
+<!--      <version>${hibernate.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; MapStruct для маппинга объектов &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.mapstruct</groupId>-->
+<!--      <artifactId>mapstruct</artifactId>-->
+<!--      <version>${mapstruct.version}</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Для аннотаций JPA и Repository &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--&lt;!&ndash;      <version>${spring.version}</version>&ndash;&gt;-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; Logging &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>ch.qos.logback</groupId>-->
+<!--      <artifactId>logback-classic</artifactId>-->
+<!--      <version>1.2.11</version>-->
+<!--    </dependency>-->
+<!--  </dependencies>-->
+
+<!--  <build>-->
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <version>3.8.1</version>-->
+<!--        <configuration>-->
+<!--          <source>${maven.compiler.source}</source>-->
+<!--          <target>${maven.compiler.target}</target>-->
+<!--          <annotationProcessorPaths>-->
+<!--            <path>-->
+<!--              <groupId>org.projectlombok</groupId>-->
+<!--              <artifactId>lombok</artifactId>-->
+<!--              <version>${lombok.version}</version>-->
+<!--            </path>-->
+<!--            <path>-->
+<!--              <groupId>org.mapstruct</groupId>-->
+<!--              <artifactId>mapstruct-processor</artifactId>-->
+<!--              <version>${mapstruct.version}</version>-->
+<!--            </path>-->
+<!--          </annotationProcessorPaths>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-war-plugin</artifactId>-->
+<!--        <version>3.3.1</version>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--        <version>2.22.2</version>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+<!--  </build>-->
+<!--</project>-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <!-- Добавляем spring-boot-parent -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-parent</artifactId>
+    <version>2.7.0</version> <!-- Версия Spring Boot -->
+    <relativePath/> <!-- Важно указать этот тег -->
+  </parent>
 
   <groupId>com.example</groupId>
   <artifactId>rest-service</artifactId>
@@ -11,21 +202,31 @@
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <junit.version>5.8.1</junit.version>
-    <mockito.version>4.0.0</mockito.version>
-    <lombok.version>1.18.22</lombok.version>
-    <mysql.connector.version>8.0.26</mysql.connector.version>
+    <junit.version>5.9.1</junit.version>
+    <mockito.version>4.8.0</mockito.version>
+    <lombok.version>1.18.24</lombok.version>
+    <mysql.connector.version>8.0.31</mysql.connector.version>
     <servlet.api.version>4.0.1</servlet.api.version>
-    <jackson.version>2.13.0</jackson.version>
+    <jackson.version>2.14.0</jackson.version>
+    <spring.version>5.3.23</spring.version>
+    <hibernate.version>5.6.12.Final</hibernate.version>
+    <mapstruct.version>1.5.3.Final</mapstruct.version>
   </properties>
 
   <dependencies>
-    <!-- Servlet API -->
+    <!-- Зависимости для Spring Boot -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>${servlet.api.version}</version>
-      <scope>provided</scope>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <!-- MySQL Connector -->
@@ -33,6 +234,7 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.connector.version}</version>
+      <scope>runtime</scope>
     </dependency>
 
     <!-- Lombok -->
@@ -48,6 +250,20 @@
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- MapStruct для маппинга объектов -->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mapstruct.version}</version>
+    </dependency>
+
+    <!-- Адаптация логирования Logback -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.11</version>
     </dependency>
 
     <!-- JUnit 5 -->
@@ -71,10 +287,32 @@
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${mapstruct.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
