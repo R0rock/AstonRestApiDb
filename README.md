@@ -36,26 +36,39 @@ hashcode
 приложение на сервер (Tomcat)
 
     Структура проекта
-   
-   src/main/java/
-├── com.example.app
-│   ├── controller
-│   │   └── UserServlet.java
-│   ├── dto
-│   │   ├── UserDTO.java
-│   │   └── RoleDTO.java
-│   ├── entity
-│   │   ├── User.java
-│   │   └── Role.java
-│   ├── mapper
-│   │   ├── UserMapper.java
-│   │   └── RoleMapper.java
-│   ├── repository
-│   │   ├── UserRepository.java
-│   │   └── RoleRepository.java
-│   └── service
-│       ├── UserService.java
-│       └── RoleService.java
-├── resources
-│   └── db.properties
-└── web.xml
+
+src/main/java
+├── com
+│   └── example
+│       ├── controller
+│       │   └── UserServlet.java
+│       ├── dto
+│       │   ├── UserDTO.java
+│       │   └── AddressDTO.java
+│       ├── entity
+│       │   ├── User.java
+│       │   └── Address.java
+│       ├── mapper
+│       │   ├── UserMapper.java
+│       │   └── AddressMapper.java
+│       ├── repository
+│       │   ├── UserRepository.java
+│       │   ├── UserRepositoryImpl.java
+│       │   ├── AddressRepository.java
+│       │   └── AddressRepositoryImpl.java
+│       ├── service
+│       │   ├── UserService.java
+│       │   ├── UserServiceImpl.java
+│       │   ├── AddressService.java
+│       │   └── AddressServiceImpl.java
+│       └── util
+│           └── DatabaseUtil.java
+src/test/java
+├── com
+│   └── example
+│       ├── controller
+│       │   └── UserServletTest.java
+│       ├── service
+│       │   └── UserServiceTest.java
+│       └── repository
+│           └── UserRepositoryTest.java
