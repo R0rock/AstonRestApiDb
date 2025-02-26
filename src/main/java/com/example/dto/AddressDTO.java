@@ -1,7 +1,9 @@
 package com.example.dto;
 
+import lombok.Data;
 import java.time.LocalDateTime;
 
+@Data
 public class AddressDTO {
     private Long id;
     private String street;

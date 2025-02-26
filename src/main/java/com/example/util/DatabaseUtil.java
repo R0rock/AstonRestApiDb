@@ -1,5 +1,7 @@
 package com.example.util;
 
+import com.example.entity.User;
+import com.example.entity.Address;
 import com.example.repository.UserRepository;
 import com.example.repository.AddressRepository;
 
@@ -18,8 +20,21 @@ public class DatabaseUtil {
     @Bean
     CommandLineRunner initDatabase(UserRepository userRepository, AddressRepository addressRepository) {
         return args -> {
-            logger.info("Initializing database...");
-            // Логика инициализации базы данных
+            logger.info("Initializing database with test data...");
+
+            User user = new User();
+            user.setName("John Doe");
+            user.setEmail("john.doe@example.com");
+            userRepository.save(user);
+
+            Address address = new Address();
+            address.setStreet("Main St");
+            address.setCity("New York");
+            address.setZipCode("10001");
+            address.setUser(user);
+            addressRepository.save(address);
+
+            logger.info("Database initialized successfully.");
         };
     }
 }

@@ -4,6 +4,7 @@ import com.example.dto.UserDTO;
 import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.repository.UserRepository;
+import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -54,5 +55,18 @@ class UserServiceTest {
         Optional<UserDTO> foundUser = userService.findById(1L);
         assertTrue(foundUser.isPresent());
         assertEquals("John Doe", foundUser.get().getName());
+    }
+
+    @Test
+    void saveWithInvalidData() {
+        UserDTO userDTO = new UserDTO(); // Name and email are null
+        assertThrows(ConstraintViolationException.class, () -> userService.save(userDTO));
+    }
+
+    @Test
+    void findByIdNotFound() {
+        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+        Optional<UserDTO> foundUser = userService.findById(1L);
+        assertFalse(foundUser.isPresent());
     }
 }
