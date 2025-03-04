@@ -20,10 +20,12 @@ import org.mapstruct.factory.Mappers;
 public interface AddressMapper {
     AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
 
+    @Mapping(target = "user", ignore = true)
     @Mapping(target = "createdAt", source = "createdAt") // Явно указываем маппинг для createdAt
     AddressDTO toDto(Address address);
 
     @Mapping(target = "id", ignore = true) // Игнорируем id при преобразовании в сущность
     @Mapping(target = "createdAt", source = "createdAt") // Явно указываем маппинг для createdAt
+    @Mapping(target = "user", ignore = true)
     Address toEntity(AddressDTO addressDTO);
 }

@@ -10,9 +10,11 @@ import org.mapstruct.factory.Mappers;
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
+    @Mapping(target = "username", source = "username")
     @Mapping(target = "addresses", source = "addresses") // Указываем маппинг для коллекции
     UserDTO toDTO(User user);
 
     @Mapping(target = "addresses", source = "addresses") // Указываем маппинг для коллекции
+    @Mapping(target = "username", source = "username")
     User toEntity(UserDTO userDTO);
 }
